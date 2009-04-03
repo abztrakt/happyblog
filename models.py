@@ -6,5 +6,8 @@ class Post(models.Model):
     date = models.DateTimeField()
     body = models.TextField()
 
+    def get_absolute_url(self):
+        return "/blog/%s/%s/" % (self.date.strftime("%Y/%b/%d").lower(), self.slug)
+
     def __unicode__(self):
         return self.slug
