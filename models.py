@@ -2,10 +2,12 @@ from django.db import models
 
 class Tag(models.Model):
     slug = models.SlugField(max_length=50)
-    title = models.CharField(max_length=50)
 
     def get_absolute_url(self):
         pass
+
+    def __unicode__(self):
+        return self.slug
 
 class Post(models.Model):
     slug = models.SlugField()
