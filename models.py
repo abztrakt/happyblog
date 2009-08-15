@@ -4,7 +4,7 @@ class Tag(models.Model):
     slug = models.SlugField(max_length=50)
 
     def get_absolute_url(self):
-        pass
+        return "/blog/tags/%s" % self.slug
 
     def __unicode__(self):
         return self.slug
