@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post">
+<h1>{{ object.title }}</h1>
+<p>{{ object.body }}</p>
+
+<div class="tags">
+{% for tag in object.assoc_tags.all %}
+<span><a href="{{ tag.get_absolute_url }}">{{ tag }}</a></span>
+{% endfor %}
+</div>
+
+<div class="date">
+<span>{{ object.date }}</span>
+</div>
+
+</div>
+{% endblock %}

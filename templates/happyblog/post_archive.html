@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Latest Posts</h1>
+{% for post in latest %}
+<div class="post">
+<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+<p>{{ post.body }}</p>
+
+<div class="tags">
+{% for tag in post.assoc_tags.all %}
+<span><a href="{{ tag.get_absolute_url }}">{{ tag }}</a></span>
+{% endfor %}
+</div>
+
+<div class="date">
+<span>{{ post.date }}</span>
+</div>
+
+</div>
+{% endfor %}
+{% endblock %}

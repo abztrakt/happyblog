@@ -10,4 +10,4 @@ def tagged_posts(request, slug, posts):
             if slug == tag.slug:
                 posts_tagged.append(post)
 
-    return render_to_response('happyblog/tagged_posts.html', locals())
+    return render_to_response('tagged_posts.html', locals())

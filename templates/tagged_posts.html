@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Posts for tag {{ slug }}</h1>
+
+<ul>
+{% for post in posts_tagged %}
+<li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
