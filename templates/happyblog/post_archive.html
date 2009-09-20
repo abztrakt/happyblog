@@ -5,7 +5,7 @@
 {% for post in latest %}
 <div class="post">
 <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-<p>{{ post.body }}</p>
+<p>{{ post.body|safe }}</p>
 
 <div class="tags">
 {% for tag in post.assoc_tags.all %}

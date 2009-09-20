@@ -3,7 +3,7 @@
 {% block content %}
 <div class="post">
 <h1>{{ object.title }}</h1>
-<p>{{ object.body }}</p>
+<p>{{ object.body|safe }}</p>
 
 <div class="tags">
 {% for tag in object.assoc_tags.all %}
