@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>abztrakt.net latest posts</title>
+        <link>http://abztrakt.net/blog/</link>
+        <description>Latest posts from abztrakt.net.</description>
+        <language>en-US</language>
+        <lastBuildDate>{{ lastdate }}</lastBuildDate>
+        {% for post in posts %}
+        <item>
+            <title>{{ post.title }}</title>
+            <link>{{ post.get_absolute_url }}</link>
+            <description>{{ post.body }}</description>
+            <author>{{ post.author }}</author>
+            {% for tag in post.assoc_tags.all %}
+            <category>{{ tag }}</category>
+            {% endfor %}
+            <guid isPermaLink="true">{{ post.get_absolute_url }}</guid>
+            <pubDate>{{ post.date }}</pubDate>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

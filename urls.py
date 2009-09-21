@@ -19,5 +19,6 @@ urlpatterns = patterns('',
     (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', date_based.archive_month, object_dict),
     (r'^(?P<year>\d{4})/$', date_based.archive_year, dict(object_dict, make_object_list=True)),
     #(r'debug$', 'abztrakt.views.debug', {'debug_in':Post.objects.all()}),
+    (r'^rss$', 'abztrakt.happyblog.views.rss', {'posts':Post.objects.all()}),
     (r'^/?$', date_based.archive_index, object_dict),
 )
