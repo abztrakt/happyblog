@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Posts for tag {{ slug }}</h1>
+<p><a href="rss">Subscribe to "{{ slug }}" posts via RSS.</a></p>
 
 <ul>
 {% for post in posts_tagged %}

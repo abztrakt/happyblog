@@ -4,7 +4,7 @@
 <h1>Tags</h1>
     <ul>
     {% for tag in object_list %}
-        <li><a href="{{ tag }}">{{ tag }}</a></li>
+        <li><a href="{{ tag }}">{{ tag }}</a> (<a href="{{ tag }}/rss">rss</a>)</li>
     {% endfor %}
     </ul>
 {% endblock %}

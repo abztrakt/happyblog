@@ -12,6 +12,7 @@ tags_dict = {
 }
 
 urlpatterns = patterns('',
+    (r'^tags/(?P<slug>.*)/rss$', 'abztrakt.happyblog.views.tagged_posts_rss', {'posts':Post.objects.all()}),
     (r'^tags/(?P<slug>.*)/', 'abztrakt.happyblog.views.tagged_posts', {'posts':Post.objects.all()}),
     (r'^tags/$', list_detail.object_list, tags_dict),
     (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[0-9A-Za-z-]+)/$', date_based.object_detail, dict(object_dict, slug_field='slug')),
