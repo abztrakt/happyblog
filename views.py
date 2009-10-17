@@ -1,5 +1,3 @@
-# Create your views here.
-
 from django.shortcuts import render_to_response
 from abztrakt.happyblog.models import User
 
@@ -10,9 +8,8 @@ def author_rss(request, author, posts):
 
     posts_author = []
     for post in posts:
-        for user in User.objects.all():
-            if user.username == author:
-                posts_author.append(post)
+        if post.author.username == author:
+            posts_author.append(post)
 
     posts = posts_author
     lastdate = posts_author[0].date
