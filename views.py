@@ -1,6 +1,24 @@
 # Create your views here.
 
 from django.shortcuts import render_to_response
+from abztrakt.happyblog.models import User
+
+def author_rss(request, author, posts):
+    """ Parses posts for a particular author to the RSS template. lastdate is the publish date of the most recent post for that author.
+    """
+    posts = posts.order_by('date').reverse()
+
+    posts_author = []
+    for post in posts:
+        for user in User.objects.all():
+            if user.username == author:
+                posts_author.append(post)
+
+    posts = posts_author
+    lastdate = posts_author[0].date
+
+    return render_to_response('rss.xml', locals())
+
 
 def tagged_posts(request, slug, posts):
     """ Returns posts for a particular tag. The slug is the tag.
@@ -12,6 +30,7 @@ def tagged_posts(request, slug, posts):
                 posts_tagged.append(post)
 
     return render_to_response('tagged_posts.html', locals())
+
 
 def tagged_posts_rss(request, slug, posts):
     """ Passes posts for a particular tag to the RSS template. lastdate is the publish date of the most recent post for that tag.
@@ -28,6 +47,7 @@ def tagged_posts_rss(request, slug, posts):
     lastdate = posts_tagged[0].date
 
     return render_to_response('rss.xml', locals())
+
 
 def rss(request, posts):
     """ Passes all posts into the RSS template. lastdate is the publish date of the most recent post.
