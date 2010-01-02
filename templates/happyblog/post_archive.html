@@ -5,7 +5,11 @@
 {% for post in latest %}
 <div class="post">
 <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-<p>{{ post.body|safe }}</p>
+{% if object.image %}
+<img src="/static/{{ object.image }}" />
+{% endif %}
+<div>{{ post.body|safe }}</div>
+<br style="clear:right;" />
 
 <div class="tags">
 {% for tag in post.assoc_tags.all %}

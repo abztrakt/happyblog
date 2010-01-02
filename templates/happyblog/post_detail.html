@@ -3,7 +3,11 @@
 {% block content %}
 <div class="post">
 <h1>{{ object.title }}</h1>
-<p>{{ object.body|safe }}</p>
+{% if object.image %}
+<img src="/static/{{ object.image }}" />
+{% endif %}
+<div>{{ object.body|safe }}</div>
+<br style="clear:right;" />
 
 <div class="tags">
 {% for tag in object.assoc_tags.all %}

@@ -16,6 +16,7 @@ class Post(models.Model):
     title = models.CharField(max_length=256)
     date = models.DateTimeField()
     body = models.TextField()
+    image = models.ImageField(upload_to="images/%Y/%m/%d", blank=True)
     assoc_tags = models.ManyToManyField(Tag)
 
     def get_absolute_url(self):
