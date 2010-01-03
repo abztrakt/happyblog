@@ -5,8 +5,8 @@
 {% for post in latest %}
 <div class="post">
 <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-{% if object.image %}
-<img src="/static/{{ object.image }}" />
+{% if post.image %}
+<a href="/static/{{ post.image }}"><img src="/static/{{ post.image }}" /></a>
 {% endif %}
 <div>{{ post.body|safe }}</div>
 <br style="clear:right;" />
