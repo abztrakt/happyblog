@@ -1,6 +1,9 @@
 from django.shortcuts import render_to_response
 from abztrakt.happyblog.models import User
 
+def author_profile(request, author):
+    return render_to_response('profile.html', locals())
+
 def author_rss(request, author, posts):
     """ Parses posts for a particular author to the RSS template. lastdate is the publish date of the most recent post for that author.
     """
