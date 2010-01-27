@@ -4,6 +4,8 @@ from django.db import models
 from abztrakt.happyblog.models import *
 
 class Migration:
+
+    no_dry_run = True
     
     def forwards(self, orm):
         for post in orm.Post.objects.all():
