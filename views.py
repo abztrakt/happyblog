@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from abztrakt.happyblog.models import User
+from happyblog.models import User
 
 def author_profile(request, author):
 #    return render_to_response('profile.html', locals())
