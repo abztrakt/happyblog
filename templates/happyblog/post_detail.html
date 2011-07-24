@@ -4,7 +4,7 @@
 <div class="post">
 <h1>{{ object.title }}</h1>
 {% if object.image %}
-<a href="/static/{{ object.image }}"><img src="/static/{{ object.image }}" /></a>
+<a href="/{{ object.image }}"><img src="/{{ object.image }}" /></a>
 {% endif %}
 <div>{{ object.body|safe }}</div>
 <br style="clear:right;" />
