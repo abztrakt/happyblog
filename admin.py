@@ -1,4 +1,4 @@
-from abztrakt.happyblog.models import Post, Tag
+from happyblog.models import Post, Tag
 from django.contrib import admin
 
 class PostAdmin(admin.ModelAdmin):
