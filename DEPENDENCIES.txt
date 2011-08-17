@@ -1,0 +1,10 @@
+DEPENDENCIES:
+
+django:
+    - install with 'pip install django'
+
+PIL:
+    - install with 'easy_install -f http://dist.plone.org/thirdparty PIL'
+
+south:
+    - install with 'pip install south'
