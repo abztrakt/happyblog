@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block content %}
 <h1>Latest Posts</h1>
@@ -6,7 +7,7 @@
 <div class="post">
 <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
 {% if post.image %}
-<a href="/{{ post.image }}"><img src="/{{ post.image }}" /></a>
+<a class="lightbox" href="/{{ post.image }}"><img src="/{% thumbnail post.image 320x240 %}" /></a>
 {% endif %}
 <div>{{ post.body|safe }}</div>
 <br style="clear:right;" />
